@@ -21,7 +21,7 @@ resource "aws_instance" "webgd" {
     ami = lookup(var.amis, var.region)
         instance_type = var.instance_type
         key_name = aws_key_pair.ssh.key_name
-        user_data = templatefile("setup_nginx.sh",{time= timestamp(),contents ="<br>this is a demo for tf"})
+        user_data = templatefile("setup_nginx.sh",{time= timestamp(),contents ="this is a demo for tf in ec2"})
         tags={
             Name = "nginx-web-server"
         }

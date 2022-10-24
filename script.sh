@@ -51,4 +51,6 @@ sleep 3
 
 
 #Step 10 拉取一个httpd的镜像，并端口映射
-sudo docker run -p 8080:80 -d httpd
+sudo docker run --name a1 -p 8080:80 -d httpd
+sudo docker exec a1 bash -c "echo 'this is in container http service' > /usr/local/apache2/htdocs/index.html"
+exit
