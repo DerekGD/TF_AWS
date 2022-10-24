@@ -26,7 +26,3 @@ variable "public_key"{
     description="SSH public key"
 }
 
-variable "security_group"{
-    type=string
-    description="security group ID"
-}
