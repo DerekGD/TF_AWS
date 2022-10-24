@@ -4,6 +4,6 @@ output "DNS" {
 }
 
 output "IP" {
-  value = aws_instance_webgd_public_ip
+  value = aws_instance.webgd.public_ip
     description = "EC2 public IP"
 }

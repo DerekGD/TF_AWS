@@ -13,16 +13,17 @@ variable "amis" {
   description = "AMI ID"
 }
 
-
+#ec2 实例类型
 variable "instance_type"{
     type=string
     default="t3.micro"
     description="EC2 instance type"
 }
 
+# 公钥
 variable "public_key"{
     type=string
-    default="id_ras.pub"
+    default="id_rsa.pub"
     description="SSH public key"
 }
 
