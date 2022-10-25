@@ -17,6 +17,7 @@ resource "aws_key_pair" "ssh" {
 
 }
 
+#创建虚机实例
 resource "aws_instance" "webgd" {
     ami = lookup(var.amis, var.region)
         instance_type = var.instance_type
@@ -25,6 +26,8 @@ resource "aws_instance" "webgd" {
         tags={
             Name = "nginx-web-server"
         }
+
+# 本地链接
  connection {
     type = "ssh"
     user = "ubuntu"
@@ -32,6 +35,7 @@ resource "aws_instance" "webgd" {
     host = aws_instance.webgd.public_ip
     }
 
+#本地文件推送
 provisioner "file" {
     source = "script.sh"
     destination = "/tmp/script.sh"
@@ -43,8 +47,6 @@ inline = [
     "/tmp/script.sh",
     ]
     }
-
-
 }
 
 #22端口，ssh
